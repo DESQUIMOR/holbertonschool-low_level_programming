@@ -1,19 +1,18 @@
 #include <stdio.h>
 
 /**
- * main - Print base 16 numbers.
+ * main - Prints the alphabet in lower, and uppercase.
  *
  * Return: Always 0.
  */
 int main(void)
 {
-	int num;
 	char letter;
 
-	for (num = 0; num < 10; num++)
-		putchar((num % 10) + '0');
+	for (letter = 'a'; letter <= 'z'; letter++)
+		putchar(letter);
 
-	for (letter = 'a'; letter <= 'f'; letter++)
+	for (letter = 'A'; letter <= 'Z'; letter++)
 		putchar(letter);
 
 	putchar('\n');
