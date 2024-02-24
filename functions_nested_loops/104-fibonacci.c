@@ -14,13 +14,13 @@ int main(void)
 
 	for (i = 1; i < 98; i++)
 	{
-    	fib3 = fib1 + fib2;
+		fib3 = fib1 + fib2;
 
 		if (fib3 < fib2)
 		{
-        	overflow = 1;
+        		overflow = 1;
 		}
-    	else
+		else
 		{
 			overflow = 0;
 		}
@@ -34,8 +34,8 @@ int main(void)
 			printf(", %lu", fib3);
 		}
 
-    	fib1 = fib2;
-    	fib2 = fib3;
+		fib1 = fib2;
+		fib2 = fib3;
 	}
 
 	printf("\n");
