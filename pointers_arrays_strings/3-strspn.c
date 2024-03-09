@@ -1,23 +1,32 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
-  * print_diagsums - Print the sum of two diagonals of square matrix
+  * _strspn - search a string for a set of bytes
+  * @s: source string
+  * @accept: accepted string
   *
-  * @a: the matrix
-  * @size: the size
-  *
-  * Return: Nothing.
+  * Return: number of bytes in the init segment
   */
-void print_diagsums(int *a, int size)
+unsigned int _strspn(char *s, char *accept)
 {
-	int i, sum1 = 0, sum2 = 0;
+	unsigned int a = 0, b, t = 0;
 
-	for (i = 0; i < size; i++)
+	while (accept[a])
 	{
-		sum1 += a[(size + 1) * i];
-		sum2 += a[(size - 1) * (i + 1)];
+		b = 0;
+
+		while (s[b] != 32)
+		{
+			if (accept[a] == s[b])
+			{
+				t++;
+			}
+
+			b++;
+		}
+
+		a++;
 	}
 
-	printf("%d, %d\n", sum1, sum2);
+	return (t);
 }
