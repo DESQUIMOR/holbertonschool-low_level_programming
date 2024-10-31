@@ -7,12 +7,12 @@
  */
 int main(void)
 {
-	unsigned int high1 = 0, low1 = 1; /* First Fibonacci number (1) */
-	unsigned int high2 = 0, low2 = 2; /* Second Fibonacci number (2) */
-	unsigned int high, low;
+	unsigned long high1 = 0, low1 = 1; /* First Fibonacci number (1) */
+	unsigned long high2 = 0, low2 = 2; /* Second Fibonacci number (2) */
+	unsigned long high, low;
 	int count;
 
-	printf("%u, %u", low1, low2);
+	printf("%lu, %lu", low1, low2);
 
 	for (count = 3; count <= 98; count++)
 	{
@@ -26,9 +26,9 @@ int main(void)
 		}
 
 		if (high != 0)
-			printf(", %u%09u", high, low);
+			printf(", %lu%09lu", high, low);
 		else
-			printf(", %u", low);
+			printf(", %lu", low);
 
 		high1 = high2;
 		low1 = low2;
