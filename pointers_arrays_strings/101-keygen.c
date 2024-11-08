@@ -20,3 +20,13 @@ void generate_key(void)
 	}
 	_putchar('\n');
 }
+
+/**
+ * main - Entry point
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
+	generate_key();
+	return (0);
+}
