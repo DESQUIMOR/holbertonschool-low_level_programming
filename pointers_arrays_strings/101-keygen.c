@@ -1,32 +1,34 @@
-#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 /**
- * generate_key - Generates a random valid key for `101-crackme`
- * Description: Generates a password by calculating random characters
- *              based on specific constraints. Adjust as needed to meet
- *              the program's exact validation rules.
- */
-void generate_key(void)
-{
-	char key[8];
-	int i;
-	unsigned int rand_seed = 12345;
-
-	for (i = 0; i < 8; i++)
-	{
-		rand_seed = (rand_seed * 1103515245 + 12345) & 0x7fffffff;
-		key[i] = (rand_seed % 26) + 'A';
-		_putchar(key[i]);
-	}
-	_putchar('\n');
-}
-
-/**
- * main - Entry point
+ * main - Generates a valid password for `101-crackme`
+ *
+ * Description: Generates a random password with ASCII values summing
+ *              to the target required by 101-crackme.
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-	generate_key();
-	return (0);
+	int target_sum = 2772;
+	int sum = 0;
+	char password[100];
+	int i = 0;
+
+    srand(time(NULL));
+
+	while (sum < target_sum - 126)
+    {
+		password[i] = (rand() % 94) + 33;
+		sum += password[i];
+		putchar(password[i]);
+		i++;
+	}
+
+	password[i] = target_sum - sum;
+	putchar(password[i]);
+	putchar('\n');
+
+	return 0;
 }
