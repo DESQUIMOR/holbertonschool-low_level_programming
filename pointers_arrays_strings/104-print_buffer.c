@@ -33,22 +33,13 @@ void print_ascii(char *b, int start, int size)
 	int j;
 	char c;
 
-	for (j = 0; j < 10; j++)
+	for (j = 0; j < 10 && (start + j) < size; j++)
 	{
-		if (start + j < size)
-		{
-			c = b[start + j];
-
-			/* Print printable ASCII characters or '.' for non-printables */
-			if (c >= 32 && c <= 126)
-				printf("%c", c);
-			else
-				printf(".");
-		}
+		c = b[start + j];
+		if (c >= 32 && c <= 126)
+			printf("%c", c);
 		else
-		{
-			printf(" ");
-		}
+			printf(".");
 	}
 }
 
@@ -69,13 +60,10 @@ void print_buffer(char *b, int size)
 
 	for (i = 0; i < size; i += 10)
 	{
-		/* Print the position in hexadecimal (8 characters, zero-padded) */
 		printf("%08x: ", i);
 
-		/* Print the hexadecimal content */
 		print_hex(b, i, size);
 
-		/* Print the ASCII representation */
 		print_ascii(b, i, size);
 
 		printf("\n");
