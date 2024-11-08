@@ -16,10 +16,10 @@ int main(void)
 	char password[100];
 	int i = 0;
 
-    srand(time(NULL));
+	srand(time(NULL));
 
 	while (sum < target_sum - 126)
-    {
+	{
 		password[i] = (rand() % 94) + 33;
 		sum += password[i];
 		putchar(password[i]);
@@ -30,5 +30,5 @@ int main(void)
 	putchar(password[i]);
 	putchar('\n');
 
-	return 0;
+	return (0);
 }
