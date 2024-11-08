@@ -17,5 +17,6 @@ char *_strcpy(char *dest, char *src);
 int _atoi(char *s);
 void generate_key(void);
 char *rot13(char *s);
+void print_number(int n);
 
 #endif
