@@ -3,19 +3,22 @@
 #include <ctype.h>
 
 /**
- * print_error - Prints an error message and exits with status 98.
+ * print_error - Imprime un mensaje de error y sale del programa con estado 98.
+ * @result: Array dinámico que debe ser liberado antes de salir.
  */
-void print_error(void)
+void print_error(int *result)
 {
+	if (result != NULL)
+		free(result);
 	printf("Error\n");
 	exit(98);
 }
 
 /**
- * is_digit - Checks if a string is composed only of digits.
- * @str: The string to check.
+ * is_digit - Verifica si una cadena contiene solo dígitos.
+ * @str: La cadena a verificar.
  *
- * Return: 1 if the string is composed only of digits, 0 otherwise.
+ * Return: 1 si la cadena contiene solo dígitos, 0 en caso contrario.
  */
 int is_digit(char *str)
 {
@@ -29,9 +32,9 @@ int is_digit(char *str)
 }
 
 /**
- * multiply - Multiplies two positive numbers represented as strings.
- * @num1: The first number.
- * @num2: The second number.
+ * multiply - Multiplica dos números positivos representados como cadenas.
+ * @num1: El primer número.
+ * @num2: El segundo número.
  */
 void multiply(char *num1, char *num2)
 {
@@ -44,7 +47,7 @@ void multiply(char *num1, char *num2)
 
 	result = calloc(len1 + len2, sizeof(int));
 	if (result == NULL)
-		print_error();
+		print_error(NULL);
 
 	for (i = len1 - 1; i >= 0; i--)
 	{
@@ -76,16 +79,16 @@ void multiply(char *num1, char *num2)
 }
 
 /**
- * main - Multiplies two positive numbers from command-line arguments.
- * @argc: The argument count.
- * @argv: The argument vector.
+ * main - Multiplica dos números positivos pasados como argumentos.
+ * @argc: Cantidad de argumentos.
+ * @argv: Vector de argumentos.
  *
- * Return: 0 on success, or exit with status 98 on error.
+ * Return: 0 si tiene éxito, 98 si hay un error.
  */
 int main(int argc, char *argv[])
 {
 	if (argc != 3 || !is_digit(argv[1]) || !is_digit(argv[2]))
-		print_error();
+		print_error(NULL);
 
 	multiply(argv[1], argv[2]);
 
