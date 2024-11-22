@@ -12,12 +12,12 @@ void print_error(void)
 }
 
 /**
- * _is_digit - Checks if a string is composed only of digits.
+ * is_digit - Checks if a string is composed only of digits.
  * @str: The string to check.
  *
  * Return: 1 if the string is composed only of digits, 0 otherwise.
  */
-int _is_digit(char *str)
+int is_digit(char *str)
 {
 	while (*str)
 	{
@@ -84,7 +84,7 @@ void multiply(char *num1, char *num2)
  */
 int main(int argc, char *argv[])
 {
-	if (argc != 3 || !_is_digit(argv[1]) || !_is_digit(argv[2]))
+	if (argc != 3 || !is_digit(argv[1]) || !is_digit(argv[2]))
 		print_error();
 
 	multiply(argv[1], argv[2]);
