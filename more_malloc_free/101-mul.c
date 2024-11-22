@@ -3,8 +3,8 @@
 #include <ctype.h>
 
 /**
- * print_error - Imprime un mensaje de error y sale del programa con estado 98.
- * @result: Array dinámico que debe ser liberado antes de salir.
+ * print_error - Imprime un mensaje de error y libera memoria asignada.
+ * @result: Puntero al array dinámico que debe ser liberado.
  */
 void print_error(int *result)
 {
@@ -83,7 +83,7 @@ void multiply(char *num1, char *num2)
  * @argc: Cantidad de argumentos.
  * @argv: Vector de argumentos.
  *
- * Return: 0 si tiene éxito, 98 si hay un error.
+ * Return: 0 si tiene éxito, o sale con el estado 98 en caso de error.
  */
 int main(int argc, char *argv[])
 {
