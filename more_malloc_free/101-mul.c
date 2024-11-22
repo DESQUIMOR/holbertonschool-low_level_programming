@@ -57,9 +57,7 @@ void multiply(char *num1, char *num2)
 	int i, j, carry, n1, n2, sum;
 
 	if (result == NULL)
-	{
 		print_error();
-	}
 
 	for (i = len1 - 1; i >= 0; i--)
 	{
@@ -81,10 +79,8 @@ void multiply(char *num1, char *num2)
 	if (i == len1 + len2)
 		printf("0");
 	else
-	{
 		for (; i < len1 + len2; i++)
 			printf("%d", result[i]);
-	}
 	printf("\n");
 
 	free(result);
